@@ -1,0 +1,12 @@
+%p#notice= notice
+%h1 Listing Events
+
+%ul
+  - @events.each do |event|
+    %li
+      = link_to event.title, edit_event_path(event)
+
+
+= form_for (Event.new) do |f|
+  = f.hidden_field :title
+  = f.submit('New Event')
